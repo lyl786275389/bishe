@@ -1,0 +1,144 @@
+.pagination {
+	margin: 0 !important;
+}
+
+#dataTables-example_paginate {
+	float: right;
+}
+
+.size-choice {
+	display: inline-block;
+	width: auto;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+.dataTables_filter {
+	float: right;
+}
+
+.dataTables_filter input {
+	display: inline-block;
+	width: auto;
+	vertical-align: middle;
+}
+
+.page-header {
+	display: inline;
+	vertical-align: middle;
+}
+
+#page-header button {
+	float: right;
+}
+
+.dataTables-example tbody tr td {
+	text-align: center;
+}
+
+.am-disabled {
+	cursor: not-allowed;
+	pointer-events: none !important;
+}
+
+.am-disabled a {
+	color: #777 !important;
+}
+
+.pagination li a:hover {
+	cursor: pointer !important;
+}
+
+.loginAlert {
+	text-align: center;
+}
+
+.required {
+	color: #ff0000;
+	margin-right: 2px;
+	vertical-align: middle;
+}
+
+#discountChoice:BEFORE {
+	margin-left: -19px !important;
+}
+
+#dataTables-example .checkChoice {
+	text-align: center !important;
+	width: 50px !important;
+}
+
+.options {
+	text-align: right;
+	margin-bottom: 10px;
+}
+
+.pageOptions {
+	margin-top: 6px;
+}
+
+.checks {
+	cursor: pointer;
+}
+
+.hico {
+	display: inline-block;
+	margin-left: 3px;
+}
+
+.hico.ico-sort {
+	width: 9px;
+	height: 10px;
+	background: url("../img/sort.png") left center no-repeat;
+}
+
+.hico.ico-sort.asc {
+	background-position: -9px 0;
+}
+
+.hico.ico-sort.desc {
+	background-position: -17px 0;
+}
+
+.selectQuery {
+	border: none;
+	width: 100%;
+}
+
+.editBox .form-horizontal .form-group input {
+	background-color: white;
+}
+
+.editBox .form-horizontal .form-group select {
+	background-color: white;
+}
+
+.editBox .form-horizontal .form-group textarea {
+	background-color: white;
+}
+#msgWranBox{
+	position:relative;
+}
+.msgWarnNum{
+	position:absolute;
+	top:10px;
+	left:35px;
+	color:#fff;
+}
+#msgWranBox.newMsg .fa-bell{
+	animation:myAnimate 2s linear infinite;
+}
+
+	@-webkit-keyframes myAnimate {	
+	  	0%{color: #fff}
+	  	100%{color: red}
+	}
+
+	@keyframes myAnimate {
+	  	0%{color: #fff}
+	  	100%{color: red}
+}
+
+.printn{
+	width:50px;
+}

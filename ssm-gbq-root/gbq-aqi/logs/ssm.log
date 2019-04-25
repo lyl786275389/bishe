@@ -1,0 +1,16 @@
+[INFO][2018-12-26 14:36|:46][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+[INFO][2018-12-26 14:36|:46][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Wed Dec 26 14:36:46 CST 2018]; root of context hierarchy
+[INFO][2018-12-26 14:36|:47][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [applicationContext.xml]
+[INFO][2018-12-26 14:36|:47][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from file [E:\java\ssm-gbq-root\gbq-aqi\target\classes\jdbc.properties]
+[INFO][2018-12-26 14:36|:47][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from file [E:\java\ssm-gbq-root\gbq-aqi\target\classes\log4j.properties]
+[INFO][2018-12-26 14:36|:47][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO][2018-12-26 14:36|:47][com.alibaba.druid.pool.DruidDataSource]{dataSource-1} inited
+[INFO][2018-12-26 14:36|:48][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 1411 ms
+[INFO][2018-12-26 14:36|:48][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMVC': initialization started
+[INFO][2018-12-26 14:36|:48][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'springMVC-servlet': startup date [Wed Dec 26 14:36:48 CST 2018]; parent: Root WebApplicationContext
+[INFO][2018-12-26 14:36|:48][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+[INFO][2018-12-26 14:36|:48][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/index],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.util.HashMap<java.lang.String, java.lang.Object> com.ssm.gbq.controller.StudentController.getStudent()
+[INFO][2018-12-26 14:36|:49][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+[INFO][2018-12-26 14:36|:49][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/assets/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+[INFO][2018-12-26 14:36|:49][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/uploads/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+[INFO][2018-12-26 14:36|:49][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'springMVC': initialization completed in 1087 ms

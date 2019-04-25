@@ -1,0 +1,140 @@
+/*初始化*/
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section{
+    padding:0;
+    margin:0;
+    /*cursor: pointer;*/
+}
+body{
+	font-size: 14px;
+	font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Helvetica, STHeiti;
+	max-width: 780px;
+  	height: 100%;
+  	margin: 0 auto;
+  	color: #666;
+  	-webkit-overflow-scrolling: touch;
+}
+input,textarea{
+    outline: none;
+    resize:none;
+}
+input {
+  border: 1px solid #cfcfcf;
+  background-color: #fcfcfc;
+  padding: 4px 6px;
+  line-height: 20px;
+  -wibkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/*申请表单填写*/
+#applyFormBody{
+	box-sizing: border-box;
+	padding: 30px 15px;
+	width: 100%;
+	height: 100%;
+	min-height: 100vh;
+	background: #57adc0f7;
+	background-size: cover; 
+}
+#applyFormBody input,#applyFormBody textarea{
+	background-color: transparent;
+	color:#fff;
+	border-color: #fff;
+}
+#applyFormBody input::-webkit-input-placeholder {
+  color: #fff;
+}
+#applyFormBody input::-moz-placeholder {
+  color: #fff;
+}
+#applyFormBody input::-ms-placeholder {
+  color: #fff;
+}
+#applyFormBody input::input-placeholder {
+  color: #fff;
+}
+.form-inline{
+	width: 100%;
+	color: #fff;
+	padding-top: 50px;
+}
+.form-group{
+	zoom: 1;
+}
+.form-group:after {
+  clear: both;
+  display: block;
+  visibility: hidden;
+  overflow: hidden;
+  height: 0;
+  content: ".";
+  font-size: 0;
+}
+.form-group>label{
+	display: inline-block;
+	width:30%;
+	box-sizing: border-box;
+	padding: 15px 10px;
+	text-align: right;
+	float: left;
+}
+.form-input{
+	width:60%;
+	box-sizing: border-box;
+	padding: 10px;
+	float: left;
+}
+.form-input input,.form-input textarea{
+	width: 100%;
+	box-sizing: border-box;
+}
+.form-input.clear .half{
+	padding: 5px;
+}
+.form-input.clear input{
+	display: inline-block;
+	width: auto;
+}
+.btn{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	border-radius: 5px;
+	color: #fff;
+	background-color: #FF0000;
+	outline: none;
+	border: 1px solid #FF0000;
+	font-size: 18px;
+}
+.btn:active{
+	background-color: #9e0202;
+	border-color: #9e0202;
+}
+/*result*/
+#loadLayerGray{
+	position: fixed;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #520202;
+	z-index: 5;
+}
+#loadLayer{
+	position: fixed;
+	top:50%;
+	left: 50%;
+	z-index: 10;
+	text-align: center;
+	transform: translate(-50%,-50%);
+	color: #fff;
+}
+#result{
+	padding-top: 100px;
+	text-align: center;
+}
+/*通用*/
+.hidden{
+	display: none;
+}

@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.gbq.mapper.ResultsMapper">
+  <resultMap id="BaseResultMap" type="com.ssm.gbq.model.Results">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="chinese" jdbcType="DOUBLE" property="chinese" />
+    <result column="math" jdbcType="DOUBLE" property="math" />
+    <result column="english" jdbcType="DOUBLE" property="english" />
+    <result column="political" jdbcType="DOUBLE" property="political" />
+    <result column="history" jdbcType="DOUBLE" property="history" />
+    <result column="geographic" jdbcType="DOUBLE" property="geographic" />
+    <result column="examTime" jdbcType="TIMESTAMP" property="examTime" />
+    <result column="examStatus" jdbcType="INTEGER" property="examStatus" />
+    <result column="studentId" jdbcType="INTEGER" property="studentId" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, chinese, math, english, political, history, geographic, examTime, examStatus, 
+    studentId, state
+  </sql>
+  <select id="selectByExample" parameterType="com.ssm.gbq.model.ResultsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_results
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_results
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    	delete from t_results
+    	where id in
+    	<foreach collection="list" item="item" open="(" close=")" separator=",">#{item}</foreach>
+    </delete>
+  <delete id="deleteByExample" parameterType="com.ssm.gbq.model.ResultsExample">
+    delete from t_results
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ssm.gbq.model.Results">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_results (chinese, math, english, 
+      political, history, geographic, 
+      examTime, examStatus, studentId, 
+      state)
+    values (#{chinese,jdbcType=DOUBLE}, #{math,jdbcType=DOUBLE}, #{english,jdbcType=DOUBLE}, 
+      #{political,jdbcType=DOUBLE}, #{history,jdbcType=DOUBLE}, #{geographic,jdbcType=DOUBLE}, 
+      #{examTime,jdbcType=TIMESTAMP}, #{examStatus,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, 
+      #{state,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ssm.gbq.model.Results">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_results
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="chinese != null">
+        chinese,
+      </if>
+      <if test="math != null">
+        math,
+      </if>
+      <if test="english != null">
+        english,
+      </if>
+      <if test="political != null">
+        political,
+      </if>
+      <if test="history != null">
+        history,
+      </if>
+      <if test="geographic != null">
+        geographic,
+      </if>
+      <if test="examTime != null">
+        examTime,
+      </if>
+      <if test="examStatus != null">
+        examStatus,
+      </if>
+      <if test="studentId != null">
+        studentId,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="chinese != null">
+        #{chinese,jdbcType=DOUBLE},
+      </if>
+      <if test="math != null">
+        #{math,jdbcType=DOUBLE},
+      </if>
+      <if test="english != null">
+        #{english,jdbcType=DOUBLE},
+      </if>
+      <if test="political != null">
+        #{political,jdbcType=DOUBLE},
+      </if>
+      <if test="history != null">
+        #{history,jdbcType=DOUBLE},
+      </if>
+      <if test="geographic != null">
+        #{geographic,jdbcType=DOUBLE},
+      </if>
+      <if test="examTime != null">
+        #{examTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examStatus != null">
+        #{examStatus,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null">
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+ <select id="countByExample"  resultType="int">
+    select count(*) from t_results
+     <if test="_parameter != null">
+      <include refid="Query_By_Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_results
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.chinese != null">
+        chinese = #{record.chinese,jdbcType=DOUBLE},
+      </if>
+      <if test="record.math != null">
+        math = #{record.math,jdbcType=DOUBLE},
+      </if>
+      <if test="record.english != null">
+        english = #{record.english,jdbcType=DOUBLE},
+      </if>
+      <if test="record.political != null">
+        political = #{record.political,jdbcType=DOUBLE},
+      </if>
+      <if test="record.history != null">
+        history = #{record.history,jdbcType=DOUBLE},
+      </if>
+      <if test="record.geographic != null">
+        geographic = #{record.geographic,jdbcType=DOUBLE},
+      </if>
+      <if test="record.examTime != null">
+        examTime = #{record.examTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.examStatus != null">
+        examStatus = #{record.examStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentId != null">
+        studentId = #{record.studentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.state != null">
+        state = #{record.state,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_results
+    set id = #{record.id,jdbcType=INTEGER},
+      chinese = #{record.chinese,jdbcType=DOUBLE},
+      math = #{record.math,jdbcType=DOUBLE},
+      english = #{record.english,jdbcType=DOUBLE},
+      political = #{record.political,jdbcType=DOUBLE},
+      history = #{record.history,jdbcType=DOUBLE},
+      geographic = #{record.geographic,jdbcType=DOUBLE},
+      examTime = #{record.examTime,jdbcType=TIMESTAMP},
+      examStatus = #{record.examStatus,jdbcType=INTEGER},
+      studentId = #{record.studentId,jdbcType=INTEGER},
+      state = #{record.state,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ssm.gbq.model.Results">
+    update t_results
+    <set>
+      <if test="chinese != null">
+        chinese = #{chinese,jdbcType=DOUBLE},
+      </if>
+      <if test="math != null">
+        math = #{math,jdbcType=DOUBLE},
+      </if>
+      <if test="english != null">
+        english = #{english,jdbcType=DOUBLE},
+      </if>
+      <if test="political != null">
+        political = #{political,jdbcType=DOUBLE},
+      </if>
+      <if test="history != null">
+        history = #{history,jdbcType=DOUBLE},
+      </if>
+      <if test="geographic != null">
+        geographic = #{geographic,jdbcType=DOUBLE},
+      </if>
+      <if test="examTime != null">
+        examTime = #{examTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examStatus != null">
+        examStatus = #{examStatus,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null">
+        studentId = #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ssm.gbq.model.Results">
+    update t_results
+    set chinese = #{chinese,jdbcType=DOUBLE},
+      math = #{math,jdbcType=DOUBLE},
+      english = #{english,jdbcType=DOUBLE},
+      political = #{political,jdbcType=DOUBLE},
+      history = #{history,jdbcType=DOUBLE},
+      geographic = #{geographic,jdbcType=DOUBLE},
+      examTime = #{examTime,jdbcType=TIMESTAMP},
+      examStatus = #{examStatus,jdbcType=INTEGER},
+      studentId = #{studentId,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectByLimitPage" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" />,
+        (SELECT `name` FROM `t_student` where id = t_results.studentId) as name
+         from t_results
+        <if test="_parameter != null">
+            <include refid="Query_By_Example_Where_Clause" />
+        </if>
+        <if test="example.orderByClause != null and example.orderByClause != ''">
+             order by ${example.orderByClause}
+        </if>
+        limit #{offset},#{limit}
+  </select>
+    <sql id="Query_By_Example_Where_Clause" >
+       <trim prefix="WHERE"  prefixOverrides="AND|OR" >
+            <if test="example.name != null and example.name != ''">
+             or (t_results.studentId in(SELECT id FROM `t_student` where  t_student.`name` like CONCAT('%',CONCAT('${example.name}','%'))))
+            </if>
+          <!--   <if test="example.phone != null and example.phone != ''">
+             or phone like CONCAT('%',CONCAT('${example.name}','%')))
+            </if> -->
+            <if test="example.examTimes != null and example.examTimes != '' ">
+              AND DATE_FORMAT(examTime,'%Y-%m') = #{example.examTimes}
+            </if>
+            <if test="example.examStatus != null and example.examStatus != '' ">
+              AND examStatus = #{example.examStatus}
+            </if>
+            <if test="example.startTime != null and example.startTime != '' ">
+              AND examTime &gt;= #{example.startTime}
+            </if>
+            <if test="example.endTime != null and example.endTime != '' ">
+              AND examTime &lt;= DATE_ADD(#{example.endTime},INTERVAL 1 DAY)
+            </if>
+              AND state = #{example.state}
+       </trim>
+  </sql>
+  <select id="selectExamTime" resultType="String">
+        select DISTINCT DATE_FORMAT(examTime,'%Y-%m') from t_results where state = #{state} order by examTime
+  </select>
+  
+   <update id="updateResultById">
+    	update t_results set state = #{state}
+    	where id in
+    	<foreach collection="item" item="item" open="(" close=")" separator=",">#{item}</foreach>
+    </update>
+    
+    <insert id="insertBatchResults" parameterType="java.util.List">
+		insert into t_results (chinese, math, english, political, history, geographic, 
+      examTime, examStatus, studentId) values
+		<foreach collection="list" index="index" item="item"
+			separator=",">
+			(#{item.chinese,jdbcType=VARCHAR},
+			#{item.math,jdbcType=VARCHAR},
+			#{item.english,jdbcType=SMALLINT},
+			#{item.political,jdbcType=VARCHAR},
+			#{item.history,jdbcType=INTEGER},
+			#{item.geographic,jdbcType=INTEGER},
+			#{item.examTime,jdbcType=TIMESTAMP},
+			#{item.examStatus,jdbcType=INTEGER},
+			#{item.studentId,jdbcType=INTEGER})
+		</foreach>
+	</insert>
+	
+	<select id="selectResultsById" parameterType="java.util.List" resultType="int">
+       select managerId from t_manager_student where studentId in( select DISTINCT studentId from t_results where state = 1 and id in 
+        <foreach collection="list" index="index" item="item"
+			separator=",">
+			(#{item})
+		</foreach>
+		)
+  </select>
+</mapper>
